@@ -26,15 +26,15 @@
 
   <section class="section profile">
     <div class="container">
-      <div>
+      <!--div>
         <div class="profile-title">
           <h2 class="title-small">About ArbitraLex</h2>
         </div>
-      </div>  
+      </div-->  
       <div class="profile-text">
         <h3 class="title-mid">As a triple-qualified lawyer (Ontario, New York, and Russia), Marina provides unique insights into cross-border disputes across North America, Russia, and Central Asia, <strong>with particular focus on Kazakhstan, Uzbekistan, Armenia, and Georgia.</strong></h3>
         <p>Trained in both civil law and common law traditions, she brings a rare dual perspective that enables her to bridge different legal systems and anticipate how disputes will be analyzed across jurisdictions.</p>
-        <a href="" title="About ArbitraLex" class="btn btn-navy">Learn More</a>
+        <a href="<?php echo get_permalink(8); ?>" title="About ArbitraLex" class="btn btn-navy">Learn More</a>
       </div>
       <img src="<?php echo theme_img('home-about-1.jpg'); ?>" loading="lazy" decoding="async">
       <div class="profile-sign">
@@ -53,20 +53,29 @@
       </div>
       <div class="expertise-2 card-navy">
         <h3 class="title-big">Dispute Resolution Lawyer</h3>
-        <p>International and Domestic Arbitration</p>
-        <p>Arbitral award enforcement & Set-aside</p>
-        <p>Contract disputes in Ontario</p>
+        <a href="<?php echo get_permalink(21); ?>" title="Arbitration Counsel">
+          <p>International and Domestic Arbitration</p>
+          <?php echo svg_icon('arrow-tr'); ?>
+        </a>  
+        <a href="<?php echo get_permalink(25); ?>" title="Litigation">
+          <p>Arbitral award enforcement & Set-aside</p>
+          <?php echo svg_icon('arrow-tr'); ?>
+        </a>  
+        <a href="<?php echo get_permalink(25); ?>" title="Litigation">
+          <p>Contract disputes in Ontario</p>
+          <?php echo svg_icon('arrow-tr'); ?>
+        </a>  
       </div>
       <div class="expertise-3 card-beige">
         <h3 class="title-big">Mediator</h3>
-        <a href="" title="Mediator">
+        <a href="<?php echo get_permalink(23); ?>" title="Mediator">
           <p>Facilitating business-focused solutions</p>
           <?php echo svg_icon('arrow-tr'); ?>
         </a>  
       </div>
       <div class="expertise-4 card-gray">
         <h3 class="title-big">Arbitrator</h3>
-        <a href="" title="Arbitrator">
+        <a href="<?php echo get_permalink(18); ?>" title="Arbitrator">
           <p>Resolving complex international disputes</p>
           <?php echo svg_icon('arrow-tr'); ?>
         </a>
@@ -127,11 +136,16 @@
 
   <section class="section testimonials">
     <div class="container">
-      <h2 class="title-small">What Clients Say</h2>
+      <h2 class="title-mid">Testimonials</h2>
       <div class="testimonial-card">
-        <p>"Marina is a master of international arbitration... delivering clear and practical advice in 'bet the company' situations." </p>
-        <span>— Cameron Murphy, Profile Investment</span>
+        <p>“Marina is a master of international arbitration... delivering clear and practical advice in 'bet the company' situations.”</p>
+        <p>Cameron Murphy, Profile Investment</p>
       </div>
+      <div class="testimonial-card">
+        <p>“Rising from a junior associate to a senior leader, Marina was instrumental to our arbitration and litigation group. ”</p>
+        <p>Yulia Solomakhina, Cleary Gottlieb (New York)</p>
+      </div>
+      <a href="" title="Read full testimonials">Read full testimonials</a>
     </div>
   </section>
 

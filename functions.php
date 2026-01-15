@@ -28,8 +28,9 @@ add_action('after_setup_theme', function () {
 
   // Navigation menu
   register_nav_menus([
-    'primary' => 'Primary menu',
-    'footer'  => 'Footer menu',
+    'primary' => 'Primary menu',        
+    'footer'  => 'Footer main menu',
+    'footer_copy'  => 'Footer bottom menu',
     'header_left' => 'Header: Left menu',
     'header_right' => 'Header: Right menu',
   ]);
@@ -58,6 +59,20 @@ add_action('wp_enqueue_scripts', function () {
     wp_get_theme()->get('Version')
   );
 });
+
+
+function theme_scripts() {
+
+  wp_enqueue_script(
+    'mobile-menu',
+    get_template_directory_uri() . '/assets/js/mobile-menu.js',
+    [],
+    null,
+    true // footer
+  );
+
+}
+add_action('wp_enqueue_scripts', 'theme_scripts');
 
 
 /* --------------------------------------------------------------------------
@@ -106,3 +121,34 @@ function svg_icon($name, $class = 'icon') {
 function theme_img($path) {
   return esc_url( get_template_directory_uri() . '/assets/pics/' . ltrim($path, '/') );
 }
+
+
+add_action('init', function () {
+	$user_id  = 2;   // <-- ID пользователя-автора
+	$photo_id = 214; // <-- attachment ID картинки
+
+	update_user_meta($user_id, 'author_photo', $photo_id);
+});
+
+define( 'ARBITRALEX_COMPANY_NAME', 'ArbitraLex' );
+define( 'ARBITRALEX_COMPANY_NAME_FULL', 'ArbitraLex Professional Corporation' );
+
+function arbitralex_svg_icon_shortcode( $atts ) {
+	$atts = shortcode_atts(
+		[
+			'name'  => '',
+			'class' => '',
+		],
+		$atts
+	);
+
+	if ( empty( $atts['name'] ) || ! function_exists( 'svg_icon' ) ) {
+		return '';
+	}
+
+	ob_start();
+	echo svg_icon( $atts['name'], $atts['class'] ?? '' );
+	return ob_get_clean();
+}
+
+add_shortcode( 'icon', 'arbitralex_svg_icon_shortcode' );
