@@ -32,6 +32,7 @@ Version: 1.0
     --fs-40: 2.22em; /* 40 / 18 */
     --fs-50: 2.78em; /* 50 / 18 */
     --fs-60: 3.33em; /* 60 / 18 */
+    --fs-80: 4.45em; /* 80 / 18 */
 
     --fw-regular: 400;
     --fw-medium: 500;
@@ -274,6 +275,10 @@ Version: 1.0
     line-height: var(--lh-tight);
   }
 
+  .color-beige {
+    color: var(--color-beige);
+  }
+
   hr {
     border-style: solid;
     border-width: 1px 0;    
@@ -309,14 +314,20 @@ Version: 1.0
     background-color: var(--color-beige);
     color: var(--color-off-white);
   }
+
+  .page-inner h2 + h3 {
+    max-width: 60vw;
+  }
+
+  .page-inner h2.title-small:first-child {
+    margin-bottom: 2em;
+  }
 }
 
 @layer layouts {
   .col-3 {
     display: grid;
   }
-  
-  .card-6 {}
 
   @media screen and (min-width: 990px) {
     .card-6 {
@@ -562,8 +573,8 @@ Version: 1.0
 
       svg {
         fill: var(--color-beige);
-        width: 4.45em;
-        height: 4.45em;
+        width: var(--fs-80);
+        height: var(--fs-80);
         justify-self: end;
       }
     }
@@ -611,7 +622,7 @@ Version: 1.0
   }
 
   .expertise-2, .expertise-3, .expertise-4 {
-    padding-inline: 4.45em;
+    padding-inline: var(--fs-80);
     display: grid;
     align-content: center;
     min-height: 15em;
@@ -940,18 +951,20 @@ Version: 1.0
     }
 
     &.light-bg {
-      padding-block: 4.45em;
+      padding-block: var(--fs-80);
     }
 
-    p {
+    h3 + p {
+      /*font-weight: var(--fw-semibold);*/
     }
     
     ul {
-      margin-inline: .3em var(--fs-20);
+      margin-right: var(--fs-20);
     }
 
     li {
-      padding-left: .3em;          
+      padding-left: .3em;
+      margin-left: .3em;       
       list-style-position: outside;
       font-size: var(--fs-15);
       color: var(--color-text-light);
@@ -966,33 +979,19 @@ Version: 1.0
       }
     }
     
-    p:last-child {
+    ul + p {
       font-size: var(--fs-15);
       color: var(--color-text-light);
       align-self: end;
     }
-  }
 
-  .litigation-card-alt {
-    .title-mid {
-      font-size: var(--fs-26);
-      margin-bottom: 1em;
+    .litigation-card-add {
+      h4 {
+        border-top: 1px solid rgba(var(--color-navy-rgb) / 0.2);
+        margin-bottom: var(--fs-40);
+        padding-top: var(--fs-40);
+      }
     }
-
-    li {
-      padding-left: .5em;          
-      margin-left: .5em;
-      list-style-position: outside;
-
-      &:not(:last-child) {
-        margin-bottom: .5em;
-      }
-
-      &::marker {
-        content: "•";
-        color: currentColor;
-      }
-    }  
   }
 
   @media screen and (min-width: 990px) {
@@ -1022,15 +1021,12 @@ Version: 1.0
           grid-gap: var(--fs-40) var(--fs-20);
         }
 
-        h3, p, h4:first-child {
+        h3, p {
           margin-inline: calc(var(--col-width) + 20px);
         }
 
-        h3, h4:first-child {
-          max-width: 60%;
-        }
-
         h3 {
+          max-width: 60%;          
           align-self: end;
         }
 
@@ -1043,22 +1039,104 @@ Version: 1.0
         ul:not(:last-child) {
           grid-row: span 2;
         }
-      }
 
-      .litigation-card-alt {
-        h4, ul {
-          margin-inline: calc(var(--col-width) + 20px);
+        .litigation-card-add {
+          .wp-block-group__inner-container {
+            display: block;
+          }
+
+          h4, ul {
+            margin-inline: calc(var(--col-width) + 20px);
+          }
         }
       }
+  }
 
+  .approach-hero {
+    .title-mid {
+      line-height: var(--lh-normal);
+    }
+  }
+
+  .approach-menu {
+    .card {
+      padding: 3em 4em;
+    }
+
+    h4 {
+      font-size: var(--fs-20);
+      line-height: var(--lh-normal);
+
+      &:before {
+        content: "";
+        width: 2em;
+        height: 0;
+        border-width: 1.5px 0 0;
+        border-style: solid;
+        margin-bottom: 1.5em;
+        display: block;
+      }
+    }
+
+    .card-navy:before {
+      border-color: var(--color-beige);
+    }
+  }
+
+  .approach-img {
+    text-align: center;
+
+    .wp-block-group__inner-container {
+      display: flex;
+      flex-direction: column;
+      gap: var(--fs-40);
+      align-items: center;
+    }
+
+    .title-mid {
+      font-size: var(--fs-26);
+      line-height: var(--lh-normal);
+    }
+
+    p {
+      font-size: var(--fs-15);
+      color: var(--color-text-light);
+    }
+  }
+
+  @media screen and (min-width: 990px) {
+    .approach-hero {
+      .wp-block-group__inner-container {
+        display: grid;
+        grid-template-columns: 8fr 4fr;
+        grid-gap: var(--fs-20);
+        grid-template-rows: min-content 1fr;
+      }
+
+      .wp-block-image {
+        grid-row: span 2;
+      }
+    }
+
+    .approach-menu {
+      .wp-block-group__inner-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: var(--fs-20);
+      }  
+    } 
+
+    .approach-img {
+      margin-inline: calc(var(--col-width)*2 + var(--fs-20)*2);
+    }
   }
 
   .page-inner .light-bg {
     background-color: var(--color-light-gray);
   }
 
-  .page-inner .wp-block-group {
-    margin-bottom: 4.45em;
+  .page-inner section.wp-block-group:not(.approach-hero) {
+    margin-bottom: var(--fs-80);
   }
 
   .page-id-18 {
