@@ -6,7 +6,6 @@
   <section class="section hero-1">
     <nav class="container home-nav"></nav>
     <div class="hero">
-      <div></div>
       <div>    
           <h1 class="title-big">Navigating complex <strong>business disputes</strong> across North America, Europe & Eurasia</h1>
           <a href="" title="Book Free 30-Min Consultation" class="btn btn-beige">Book Free 30-Min Consultation</a>
@@ -145,7 +144,7 @@
         <p>“Rising from a junior associate to a senior leader, Marina was instrumental to our arbitration and litigation group. ”</p>
         <p>Yulia Solomakhina, Cleary Gottlieb (New York)</p>
       </div>
-      <a href="" title="Read full testimonials">Read full testimonials</a>
+      <a href="<?php echo get_permalink(16); ?>#testimonials" title="Read full testimonials">Read full testimonials</a>
     </div>
   </section>
 
