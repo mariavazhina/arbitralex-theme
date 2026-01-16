@@ -115,18 +115,23 @@
       </div>
       <ul class="advantages-list">
        <li>
+        <?php echo svg_icon('advantages-icon-1'); ?>
         <h4 class="title-small">Direct engagement</h4>
        </li>
        <li>
+        <?php echo svg_icon('advantages-icon-2'); ?>
         <h4 class="title-small">Boutique practice efficiency</h4>
        </li>
        <li>
+        <?php echo svg_icon('advantages-icon-3'); ?>
         <h4 class="title-small">Cross-cultural fluency</h4>
        </li>
        <li>
+        <?php echo svg_icon('advantages-icon-4'); ?>
         <h4 class="title-small">Purpose-built teams</h4>
        </li>
        <li>
+        <?php echo svg_icon('advantages-icon-5'); ?>
         <h4 class="title-small">Global reach, local insight</h4>
        </li>
       </ul>
